@@ -44,7 +44,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no \
             -i ./vm-key.pem \
-            azureuser@20.225.50.36 << 'EOF'
+            root@20.225.50.36 << 'EOF'
 
             set -e
 
@@ -53,13 +53,13 @@ jobs:
             echo "===================================="
 
             cd /home/azureuser/hello-world-app
-            sudo su
+           
             echo "Pulling latest code..."
             git fetch origin
             git reset --hard origin/master
 
             echo "Installing dependencies..."
-            
+            npm ci
 
             echo "Building Next.js application..."
             npm run build
