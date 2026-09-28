@@ -79,6 +79,19 @@ resource "azurerm_network_security_group" "main" {
     destination_address_prefix = "*"
   }
 
+   # SSH
+  security_rule {
+    name                       = "Allow-3000"
+    priority                   = 111
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "3000"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
   # HTTP
   security_rule {
     name                       = "Allow-HTTP"
@@ -142,7 +155,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
 
-  size = "Standard_B1s"
+  size = "Standard_D2s_v3"
 
   admin_username = "azureuser"
 
