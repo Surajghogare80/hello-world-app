@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
-      <h1>Hello Suraj!</h1>
+      <h1>Hello Everyone !</h1>
       <p>Deployed automatically to Azure.</p>
     </main>
   );
