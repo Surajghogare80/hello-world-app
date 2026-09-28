@@ -52,7 +52,7 @@ jobs:
             echo "Starting deployment"
             echo "===================================="
 
-            cd /root/hello-world-app
+            cd /home/azureuser/hello-world-app
 
             echo "Pulling latest code..."
             git fetch origin
